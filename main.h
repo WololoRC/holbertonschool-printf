@@ -8,6 +8,7 @@ typedef struct print_format
 
 } format;
 
+int _printf(const char *format, ...)
 int (*get_format(char *str))(*void);
 int s_string(char *str);
 int c_char(char *c);
