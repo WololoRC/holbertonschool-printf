@@ -1,5 +1,6 @@
 #include "main.h"
-int (*get_format(char *str))(*void)
+#include <stdlib.h>
+int (*get_format(char *str))(char *fun)
 {
 	format srch[] = {
 
@@ -12,7 +13,7 @@ int (*get_format(char *str))(*void)
 
 	while (srch[cnt].frmt)
 	{
-		if (*(srch[cnt].frmt == *str))
+		if (*(srch[cnt].frmt) == *str)
 		{
 			return (srch[cnt].f);
 		}

@@ -1,27 +1,46 @@
-int _printf(const char *format, ...)
+#include "main.h"
+void _printf(const char * const format, ...)
 {
-	int cnt = 0;
-	char *s = NULL;
-
+	unsigned int cnt, cnt_t;
 	va_list args;
+	char *buff;
+
+	frmt typez[] = {
+//		{ "i", prInt },
+//		{ "d", prInt },
+		{ "c", c_char },
+		{ "s", s_string },
+//		{ "f", prFlt },
+		{NULL, NULL}
+	};
+
+	cnt = cnt_t = 0;
 
 	va_start(args, format);
 
-	while (format[cnt] != '\0')
-	{	
-		s = format[cnt];
+	while (format != NULL && format[cnt] != '\0')
+	{
+		cnt_t = 0;
 
-		c_char(s);
-
-		if (format[cnt] == '%')
+		if (format[cnt] != '%')
 		{
-			cnt += 1;
-			s = format[cnt];
-			*get_format(s, va_arg(args, char *));
+			print_format(format[cnt]); 
 		}
 		
+		else
+		{
+			cnt++;
+	
+			while (typez[cnt_t].type != NULL)
+			{		
+				if (format[cnt] == (*typez[cnt_t].type))
+				{
+					typez[cnt_t].f(args);
+				}
+				cnt_t++;
+			}
+		}
 		cnt++;
 	}
-
-	return (0);	
+	va_end(args);
 }

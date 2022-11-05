@@ -1,19 +1,20 @@
-/**
- *aaa
- */
 #ifndef main_h
 #define main_h
 
-typedef struct print_format
+#include <stdlib.h>
+#include <stdarg.h>
+#include <unistd.h>
+
+typedef struct frmt
 {
-	char *frmt
-	int (*f)(char *str);
+	char *type;
+	void (*f)();
+} frmt;   
 
-} format;
-
-int (*get_format(char *str))(*void);
-int s_string(char *str);
-int c_char(char *c);
-void prueba(void *s);
+void s_string(va_list aValue);
+void c_char(va_list aValue);
+void _printf(const char * const format, ...);
+void print_format(char c);
+int _putchar(char c);
 
 #endif
