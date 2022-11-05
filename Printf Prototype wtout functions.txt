@@ -1,0 +1,142 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdarg.h>
+
+typedef struct frmt
+{
+	char *type;
+	void (*f)(	);
+} frmt;
+
+/**
+ * prInt - prints an integer value
+ *
+ * @aValue: Value to print
+ */
+void prInt(va_list aValue)
+{
+	printf("%d", va_arg(aValue, int));
+}
+
+/**
+ * prChr - prints a char
+ *
+ * @aValue: Value to print
+ */
+void prChr(va_list aValue)
+{
+	printf("%c", va_arg(aValue, int));
+}
+
+
+/**
+ * prStr - prints an string
+ *
+ * @aValue: Value to print
+ */
+void prStr(va_list aValue)
+{
+	char *s;
+
+	s = va_arg(aValue, char *);
+	if (s == NULL)
+		s = "(nil)";
+	printf("%s", s);
+}
+
+/**
+ * prFlt - prints a float value
+ *
+ * @aValue: Value to print
+ */
+void prFlt(va_list aValue)
+{
+	printf("%f", va_arg(aValue, double));
+}
+
+/**
+ * This is incomplete
+ * needs a rework
+ */
+void addToBuffer(char a, char **b)
+{
+    static int c;
+    
+	if (sizeof(b) < 1024)
+		b = malloc(1 * sizeof(char));
+
+	if (b = NULL)
+	{
+		free (b);
+		exit (-1);
+	}
+	
+	
+	b[c] = a;
+	c++;
+}
+
+/**
+ * print_all - prints any value given to the program
+ *
+ * @format: value to be printed
+ */
+void _printf(const char * const format, ...)
+{
+	unsigned int i, n, j;
+	va_list args;
+	char *buff;
+
+	frmt typez[] = {
+		{ "i", prInt },
+		{ "d", prInt },
+		{ "c", prChr },
+		{ "s", prStr },
+		{ "f", prFlt },
+		{NULL, NULL}
+	};
+
+	i = j = n = 0;
+
+	va_start(args, format);
+
+	while (format != NULL && format[i] != '\0')
+	{
+		n = 0;
+		if (format[i] != '%')
+		{
+			putchar(format[i]); //buffer would go here
+			j++;
+		}
+		else
+		{
+			i++;
+			if (buff != NULL)
+			{
+    			printf("%s", buff);
+			}
+			while (typez[n].type != NULL)
+			{
+				if (format[i] == (*typez[n].type))
+				{
+					typez[n].f(args);
+				}
+				n++;
+			}
+		}
+		i++;
+	}
+	va_end(args);
+}
+
+
+
+int main(void)
+{
+    int a = 15;
+    char f[] = "abcdef";
+    
+    _printf("aaaa %i aaa[%d]aa\n", 12, a);
+    _printf("aaaa %s", f);
+    return (0);
+}
