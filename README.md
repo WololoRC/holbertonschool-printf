@@ -18,3 +18,5 @@ char variable with formats all inside of an a structure array called frmt (forma
 a function pointer call the sub-function what we need. 
 
 All the function only prints and returns nothing.
+
+![Screenshot from 2022-11-07 17-49-16](https://user-images.githubusercontent.com/110310135/200412506-6888776c-48ad-4e0d-bb0f-8a28ed2f1203.png)
