@@ -5,11 +5,17 @@
 #include <stdarg.h>
 #include <unistd.h>
 
+/**
+ *struct frmt - This is a struct to call printf functions by format i.e "%s"
+ *
+ *@type: Format specifier
+ *@f: Function pointer
+ */
 typedef struct frmt
 {
 	char *type;
 	void (*f)();
-} frmt;   
+} frmt;
 
 void s_string(va_list aValue);
 void c_char(va_list aValue);

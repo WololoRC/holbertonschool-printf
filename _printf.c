@@ -1,9 +1,13 @@
 #include "main.h"
+/**
+ *_printf - printf main function
+ *
+ *@format: String argument
+ */
 void _printf(const char * const format, ...)
 {
 	unsigned int cnt, cnt_t;
 	va_list args;
-	char *buff;
 
 	frmt typez[] = {
 //		{ "i", prInt },
@@ -15,24 +19,23 @@ void _printf(const char * const format, ...)
 	};
 
 	cnt = cnt_t = 0;
-
 	va_start(args, format);
-
 	while (format != NULL && format[cnt] != '\0')
 	{
 		cnt_t = 0;
-
 		if (format[cnt] != '%')
 		{
-			print_format(format[cnt]); 
+			print_format(format[cnt]);
 		}
-		
 		else
 		{
 			cnt++;
-	
+			if (format[cnt] == '%')
+			{
+				_putchar('%');
+			}
 			while (typez[cnt_t].type != NULL)
-			{		
+			{
 				if (format[cnt] == (*typez[cnt_t].type))
 				{
 					typez[cnt_t].f(args);
