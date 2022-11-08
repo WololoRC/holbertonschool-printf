@@ -59,3 +59,13 @@ int _putchar(char c)
 {
 	return (write(1, &c, 1));
 }
+
+/**
+ * _putchart - in charge of writing 1 char to stdout
+ *
+ * @c: char to print
+ */
+int _putchart(int c)
+{
+        return (write(1, &c, 1));
+}

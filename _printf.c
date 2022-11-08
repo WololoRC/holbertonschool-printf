@@ -18,7 +18,7 @@ int _printf(const char * const format, ...)
 		{NULL, nothing}
 	};
 
-	cnt = cnt2 = cnt2 = 0;
+	cnt = cnt_t = cnt2 = 0;
 	va_start(args, format);
 
 	while (format != NULL && format[cnt] != '\0')

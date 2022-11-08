@@ -23,11 +23,12 @@ int c_char(va_list aValue);
 int _printf(const char * const format, ...);
 void print_format(char c);
 int _putchar(char c);
+int _putchart(int c);
+int prInt(va_list);
 int checkForChar(int);
 int getSize(long int);
 void prInteger(int *, int);
 void prCharacter(char);
-int prInt(long int num);
 int get_value(va_list aValue);
 int nothing(void);
 
