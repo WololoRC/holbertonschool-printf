@@ -1,6 +1,15 @@
 #include "main.h"
 
 /**
+ *nothing - prints nothing
+ *
+ * Return: empty char
+ */
+int nothing(void)
+{
+	return (_putchar(0));
+}
+/**
  *s_string - Print char by char a string with the expetion of '\0'
  *
  *@aValue: String argument passed by the printf main function.

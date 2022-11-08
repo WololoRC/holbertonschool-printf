@@ -15,7 +15,7 @@ int _printf(const char * const format, ...)
 		{ "d", prInt },
 		{ "c", c_char },
 		{ "s", s_string },
-		{NULL, NULL}
+		{NULL, nothing}
 	};
 
 	cnt = cnt2 = cnt2 = 0;
