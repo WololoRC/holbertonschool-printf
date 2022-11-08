@@ -1,10 +1,12 @@
 #include "main.h"
+
 /**
  *s_string - Print char by char a string with the expetion of '\0'
  *
  *@aValue: String argument passed by the printf main function.
+ * Return: lenght(cnt)
  */
-void s_string(va_list aValue)
+int s_string(va_list aValue)
 {
 	char *str = va_arg(aValue, char *);
 
@@ -15,15 +17,20 @@ void s_string(va_list aValue)
 		_putchar(str[cnt]);
 		cnt++;
 	}
+
+	return (cnt);
 }
 /**
  *c_char - Print chars
  *
  *@aValue: Char arument passed by the printf main function
+ * Return: lenght
  */
-void c_char(va_list aValue)
+int c_char(va_list aValue)
 {
 	_putchar(va_arg(aValue, int));
+
+	return (1);
 }
 /**
  *print_format - Print char by char the format string argument

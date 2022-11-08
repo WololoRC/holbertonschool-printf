@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 /**
  *struct frmt - This is a struct to call printf functions by format i.e "%s"
@@ -14,13 +15,21 @@
 typedef struct frmt
 {
 	char *type;
-	void (*f)();
+	int (*f)();
 } frmt;
 
-void s_string(va_list aValue);
-void c_char(va_list aValue);
-void _printf(const char * const format, ...);
+int s_string(va_list aValue);
+int c_char(va_list aValue);
+int _printf(const char * const format, ...);
 void print_format(char c);
 int _putchar(char c);
+int _putchar2(int c);
+int checkForChar(int);
+int getSize(long int);
+void prInteger(int *, int);
+void prCharacter(char);
+int prInt(long int num);
+int get_value(va_list aValue);
+
 
 #endif

@@ -3,26 +3,26 @@
  *_printf - printf main function
  *
  *@format: String argument
+ * Return: lenght ((cnt + cnt2) - 2)
  */
-void _printf(const char * const format, ...)
+int _printf(const char * const format, ...)
 {
-	unsigned int cnt, cnt_t;
+	unsigned int cnt, cnt_t, cnt2;
 	va_list args;
 
 	frmt typez[] = {
-//		{ "i", prInt },
-//		{ "d", prInt },
+		{ "i", prInt },
+		{ "d", prInt },
 		{ "c", c_char },
 		{ "s", s_string },
-//		{ "f", prFlt },
 		{NULL, NULL}
 	};
 
-	cnt = cnt_t = 0;
+	cnt = cnt2 = cnt2 = 0;
 	va_start(args, format);
+
 	while (format != NULL && format[cnt] != '\0')
 	{
-		cnt_t = 0;
 		if (format[cnt] != '%')
 		{
 			print_format(format[cnt]);
@@ -38,7 +38,7 @@ void _printf(const char * const format, ...)
 			{
 				if (format[cnt] == (*typez[cnt_t].type))
 				{
-					typez[cnt_t].f(args);
+					cnt2 = typez[cnt_t].f(args);
 				}
 				cnt_t++;
 			}
@@ -46,4 +46,5 @@ void _printf(const char * const format, ...)
 		cnt++;
 	}
 	va_end(args);
+	return ((cnt + cnt2) - 2);
 }
