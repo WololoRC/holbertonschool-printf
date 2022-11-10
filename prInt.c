@@ -24,7 +24,7 @@ int prInt(va_list aValue)
 	}
 	charFlg = checkForChar(num);
 	lenght = getSize(num);
-	i = lenght;
+	i = (lenght - 1);
 
 	p = malloc(lenght * sizeof(long int));
 	if (!p)
@@ -72,13 +72,10 @@ void prCharacter(char num)
  */
 void prInteger(int *num, int lenght)
 {
-	int i = 1;
+	int i = 0;
 
-	while (i <= lenght)
+	while (i < lenght)
 	{
-		if (num[i] == 0)
-			_putchart(num[0]);
-		if (num[i] > 0)
 			_putchart(num[i]);
 		i++;
 	}
