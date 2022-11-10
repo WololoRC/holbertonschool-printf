@@ -13,10 +13,10 @@
 int prInt(va_list aValue)
 {
 	long int num = va_arg(aValue, int);
-	int *p;
+	int *p = NULL;
 	int mod, i, charFlg, lenght, mnsFlg;
 
-	mod = charFlg = lenght = mnsFlg = 0;
+	mod = i = charFlg = lenght = mnsFlg = 0;
 	if (num < 0)
 	{
 		num /= -1;
@@ -41,7 +41,10 @@ int prInt(va_list aValue)
 	}
 
 	if (mnsFlg)
+	{
 		_putchart('-');
+		lenght++;
+	}
 	if (charFlg)
 		prCharacter(num);
 	else
@@ -131,4 +134,3 @@ int checkForChar(int num)
 	}
 	return (0);
 }
-

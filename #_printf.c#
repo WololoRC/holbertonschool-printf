@@ -18,7 +18,7 @@ int _printf(const char * const format, ...)
 		{NULL, nothing}
 	};
 
-		if (!format)
+	if (!format)
 	{
 		return (-1);
 	}
