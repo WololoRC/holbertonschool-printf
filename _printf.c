@@ -17,11 +17,9 @@ int _printf(const char * const format, ...)
 		{ "%", modMod },
 		{NULL, nothing}
 	};
-
 		if (!format)
 			return (-1);
-	cnt_ret = 0;
-	cnt = cnt_t = 0;
+	cnt = cnt_t = cnt_ret = valRet = 0;
 	va_start(args, format);
 	while (format != NULL && format[cnt])
 	{
@@ -30,7 +28,7 @@ int _printf(const char * const format, ...)
 			print_format(format[cnt]);
 			cnt_ret++;
 		}
-		else
+		else if (format[cnt + 1])
 		{
 			cnt++;
 			valRet = valCheck(format[cnt]);
@@ -43,6 +41,8 @@ int _printf(const char * const format, ...)
 			else
 				cnt_ret += valRet;
 		}
+		else
+			return (-1);
 		cnt++;
 	}
 	va_end(args);
