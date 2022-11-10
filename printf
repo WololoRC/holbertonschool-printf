@@ -1,0 +1,27 @@
+.\" Manpage for nuseradd.
+.TH man 8 "10 NOV 2022" "0.1" "_printf man page"
+.SH NAME
+_printf \- prints to stdout
+.SH SYNOPSIS
+_printf([STRING, ARGUMENTS][VALUES]);
+.SH DESCRIPTION
+_printf is a function capable of printing to stdout.
+.SH OPTIONS
+Possible arguments:
+.br
+%s - Attempts to print the given value as a string
+.br
+%c - Attempts to print the given value as a char
+.br
+%d - Attempts to print the given value as an integer. In the case of chars, prints the ASCII value
+.br
+%i - Behaves exactly like %d
+.br
+%% - Prints the '%' character
+.LP
+Arguments must be declared within the given string. I.E: '_printf("string %d", 12);'
+.SH BUGS
+Attempting to print an integer of two or more digits with a '0' added to the very left prints unexpected values.
+This bug affects the standard printf library as well.
+.SH AUTHOR
+J.J. & E.G.
