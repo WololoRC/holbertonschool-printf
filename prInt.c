@@ -26,7 +26,7 @@ int prInt(va_list aValue)
 	lenght = getSize(num);
 	i = (lenght - 1);
 
-	p = malloc(1 * sizeof(int));
+	p = malloc(lenght * sizeof(int));
 	if (!p)
 		return (-1);
 
