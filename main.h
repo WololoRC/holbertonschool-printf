@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 /**
  *struct frmt - This is a struct to call printf functions by format i.e "%s"
@@ -31,7 +32,6 @@ void prCharacter(char);
 int get_value(va_list aValue);
 int nothing(void);
 int modMod(void);
-int valCheck(char);
-
+int valCheck(char charz);
 
 #endif
