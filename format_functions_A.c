@@ -30,10 +30,10 @@ int modMod(void)
  */
 int valCheck(char chrz)
 {
-	char comp[] = {'d', 'c', 's', '%'};
+	char comp[] = {'d', 'c', 's', '%', 'i'};
 	int  cnt = 0;
 
-	while (cnt < 4)
+	while (cnt < 5)
 	{
 		if (comp[cnt] == chrz)
 			return (1);
