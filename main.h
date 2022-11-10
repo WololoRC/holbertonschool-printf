@@ -31,5 +31,7 @@ void prCharacter(char);
 int get_value(va_list aValue);
 int nothing(void);
 int modMod(void);
+int valCheck(char);
+
 
 #endif

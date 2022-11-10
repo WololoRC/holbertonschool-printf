@@ -7,7 +7,7 @@
  */
 int _printf(const char * const format, ...)
 {
-	int cnt, cnt_t, cnt_ret;
+	int cnt, cnt_t, cnt_ret, valRet;
 	va_list args;
 	frmt typez[] = {
 		{ "i", prInt },
@@ -19,10 +19,7 @@ int _printf(const char * const format, ...)
 	};
 
 		if (!format)
-	{
-		return (-1);
-	}
-
+			return (-1);
 	cnt_ret = 0;
 	cnt = cnt_t = 0;
 	va_start(args, format);
@@ -36,13 +33,15 @@ int _printf(const char * const format, ...)
 		else
 		{
 			cnt++;
-			for (cnt_t = 0; typez[cnt_t].type != NULL; cnt_t++)
+			valRet = valCheck(format[cnt]);
+			if (valRet == 1)
 			{
-				if (format[cnt] == (*typez[cnt_t].type))
-				{
-					cnt_ret += typez[cnt_t].f(args);
-				}
+				for (cnt_t = 0; typez[cnt_t].type != NULL; cnt_t++)
+					if (format[cnt] == (*typez[cnt_t].type))
+						cnt_ret += typez[cnt_t].f(args);
 			}
+			else
+				cnt_ret += valRet;
 		}
 		cnt++;
 	}
