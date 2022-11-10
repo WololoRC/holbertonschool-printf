@@ -27,7 +27,7 @@ int _putchart(int c);
 int prInt(va_list);
 int checkForChar(int);
 int getSize(long int);
-void prInteger(int *, int);
+void prInteger(int *, int, int);
 void prCharacter(char);
 int get_value(va_list aValue);
 int nothing(void);
