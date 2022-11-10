@@ -7,7 +7,8 @@
  */
 int nothing(void)
 {
-	return (_putchar(0));
+	_putchar(0);
+	return (-1);
 }
 /**
  *s_string - Print char by char a string with the expetion of '\0'
@@ -18,8 +19,16 @@ int nothing(void)
 int s_string(va_list aValue)
 {
 	char *str = va_arg(aValue, char *);
+	int cnt, fail;
 
-	int cnt = 0;
+	cnt = 0;
+	fail = 0;
+
+	if (!str)
+	{
+		str = "(null)";
+		fail = 0;
+	}
 
 	while (str[cnt] != '\0')
 	{
@@ -27,7 +36,7 @@ int s_string(va_list aValue)
 		cnt++;
 	}
 
-	return (cnt);
+	return ((cnt + fail));
 }
 /**
  *c_char - Print chars
@@ -37,9 +46,13 @@ int s_string(va_list aValue)
  */
 int c_char(va_list aValue)
 {
+	int cnt;
+
+	cnt = 1;
+
 	_putchar(va_arg(aValue, int));
 
-	return (1);
+	return (cnt);
 }
 /**
  *print_format - Print char by char the format string argument
