@@ -10,10 +10,11 @@ int nothing(void)
 	_putchar(0);
 	return (-1);
 }
+
 /**
  *s_string - Print char by char a string with the expetion of '\0'
  *
- *@aValue: String argument passed by the printf main function.
+ * @aValue: String argument passed by the printf main function.
  * Return: lenght(cnt)
  */
 int s_string(va_list aValue)

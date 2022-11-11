@@ -68,7 +68,6 @@ void prCharacter(char num)
  *
  * @num: array of numbers
  * @lenght: lenght of the array
- * @mnsFlg: Whether num is negative or possitive
  */
 void prInteger(int *num, int lenght, int mnsFlg)
 {
@@ -120,8 +119,7 @@ int checkForChar(int num)
 	 * to bypass this number catcher function, so any value greater than
 	 * 90 ends up returning false.
 	 * Despite this, to ensure nothing slips pass this checker, we still do
-	 * check to see if the passed argument is a char of greater than 90
-	 * value.
+	 * check to see if the passed argument is a char of greater than 90 val
 	 */
 	if (num > 90)
 		return (0);
