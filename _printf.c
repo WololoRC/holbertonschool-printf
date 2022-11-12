@@ -3,7 +3,7 @@
  *_printf - printf main function
  *
  *@format: String argument
- * Return: lenght ((cnt + cnt2) - 2)
+ * Return: lenght
  */
 int _printf(const char * const format, ...)
 {
@@ -26,16 +26,16 @@ int _printf(const char * const format, ...)
 		if (format[cnt] != '%')
 		{
 			print_format(format[cnt]);
-			cnt_ret++;
+			cnt_ret++; /* @cnt_ret: counter for lenght return */
 		}
-		else if (format[cnt + 1])
+		else if (format[cnt + 1]) /* format[cnt] memory check */
 		{
 			cnt++;
-			valRet = valCheck(format[cnt]);
+			valRet = valCheck(format[cnt]); /* @valRet: holds return of valCheck */
 			if (valRet == 1)
 			{
 				for (cnt_t = 0; typez[cnt_t].type != NULL; cnt_t++)
-					if (format[cnt] == (*typez[cnt_t].type))
+					if (format[cnt] == (*typez[cnt_t].type)) /* @cnt_t: type counter */
 						cnt_ret += typez[cnt_t].f(args);
 			}
 			else

@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  *nothing - prints nothing
  *
@@ -9,12 +8,12 @@ int nothing(void)
 {
 	_putchar(0);
 	return (-1);
+	/* in case of NULL prints nothing */
 }
-
 /**
  *s_string - Print char by char a string with the expetion of '\0'
  *
- * @aValue: String argument passed by the printf main function.
+ *@aValue: String argument passed by the printf main function.
  * Return: lenght(cnt)
  */
 int s_string(va_list aValue)
@@ -65,9 +64,9 @@ void print_format(char c)
 	write(1, &c, 1);
 }
 /**
- *_putchar - Holberton's classic purtchar
+ *_putchar - Holberton classic purtchar
  *@c: char
- * Return: the nBytes of the contenct of &c in the standard output
+ * Return: the nBytes of the content of &c in the standard output
  */
 int _putchar(char c)
 {
