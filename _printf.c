@@ -3,7 +3,7 @@
  *_printf - printf main function
  *
  *@format: String argument
- * Return: lenght
+ * Return: lenght, if function fails return -1
  */
 int _printf(const char * const format, ...)
 {
